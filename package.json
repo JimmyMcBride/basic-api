@@ -1,0 +1,30 @@
+{
+  "name": "basic-api",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "repository": "git@github.com:JimmyMcBride/basic-api.git",
+  "author": "JimmyMcBride <mcbride967@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "db-reset": "psql -U postgres -f remakeDatabase.sql",
+    "knex-reset": "npx knex migrate:rollback && npx knex migrate:latest && npx knex seed:run",
+    "total-reset": "yarn db-reset && yarn knex-refresh"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "knex": "^0.21.16",
+    "pg": "^8.5.1"
+  }
+}
